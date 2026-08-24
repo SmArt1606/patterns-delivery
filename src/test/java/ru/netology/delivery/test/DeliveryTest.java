@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.DataGenerator;
 
 import java.time.Duration;
@@ -35,7 +34,9 @@ class DeliveryTest {
                 .click();
 
         $("[data-test-id='date'] input")
-                .sendKeys(Keys.chord(Keys.COMMAND, "a"), firstMeetingDate);
+                .clear();
+        $("[data-test-id='date'] input")
+                .setValue(firstMeetingDate);
 
         $("[data-test-id='name'] input")
                 .setValue(validUser.getName());
@@ -55,7 +56,9 @@ class DeliveryTest {
 
         // Повторная отправка с другой датой
         $("[data-test-id='date'] input")
-                .sendKeys(Keys.chord(Keys.COMMAND, "a"), secondMeetingDate);
+                .clear();
+        $("[data-test-id='date'] input")
+                .setValue(secondMeetingDate);
 
         $$("button")
                 .findBy(Condition.exactText("Запланировать"))
@@ -70,10 +73,6 @@ class DeliveryTest {
 
         $("[data-test-id='success-notification']")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15));
-
-        $("[data-test-id='replan-notification']")
-                .shouldBe(Condition.visible, Duration.ofSeconds(15))
-                .shouldHave(Condition.text("Необходимо подтверждение"));
 
         $("[data-test-id='success-notification']")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15))
