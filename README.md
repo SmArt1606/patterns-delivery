@@ -1,5 +1,7 @@
 # Patterns. Задача №1
 
+[![Java CI with Gradle](https://github.com/SmArt1606/patterns-delivery/actions/workflows/gradle.yml/badge.svg)](https://github.com/SmArt1606/patterns-delivery/actions/workflows/gradle.yml)
+
 Домашнее задание к занятию «2.3. Patterns».
 
 ## Задача
