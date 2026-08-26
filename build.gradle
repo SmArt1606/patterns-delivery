@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'ru.netology'
@@ -11,6 +12,14 @@ java {
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
+
+allure {
+    version = '2.20.1'
+
+    useJUnit5 {
+        version = '2.20.1'
+    }
+}
 
 repositories {
     mavenCentral()
@@ -25,9 +34,13 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
 
     testImplementation 'org.slf4j:slf4j-simple:2.0.3'
+
+    testImplementation 'io.qameta.allure:allure-selenide:2.20.1'
 }
 
 test {
     useJUnitPlatform()
-    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+
+    systemProperty 'selenide.headless',
+            System.getProperty('selenide.headless')
 }
