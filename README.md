@@ -20,9 +20,6 @@
 
 ## Запуск приложения
 
-```bash
-java -jar artifacts/app-replan-delivery.jar
-
 ## Allure Report
 
 В проект интегрирован Allure для формирования отчётов о выполнении автотестов.
@@ -43,3 +40,8 @@ Allure интегрирован с Selenide, благодаря чему в от
 Allure автоматически приложил Screenshot и Page Source.
 
 <img width="2048" height="1163" alt="3" src="https://github.com/user-attachments/assets/08489620-480c-40ca-94f9-61e19579d6e2" />
+
+```bash
+java -jar artifacts/app-replan-delivery.jar
+
+
